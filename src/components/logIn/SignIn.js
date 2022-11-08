@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import svg from "../../assets/images/login/login.svg";
+import SocialLogin from "../Shared/SocialLogin";
 import TitleHooks from "../Shared/TitleHooks";
 
 const SignIn = () => {
@@ -54,11 +55,22 @@ const SignIn = () => {
             </div>
             <div className="form-control mt-6">
               <button>
-                <input className="btn btn-primary" type="text" value="Log In" />
+                <input
+                  className="btn btn-primary w-full"
+                  type="text"
+                  value="Log In"
+                />
               </button>
             </div>
           </form>
-          {/* <SocialLogin></SocialLogin> */}
+          <div className="flex items-center pb-3 space-x-1">
+            <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+            <p className="px-3 text-sm dark:text-gray-400">
+              Login with social accounts
+            </p>
+            <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
+          </div>
+          <SocialLogin></SocialLogin>
           <p className="text-center mb-5 ">
             New to genius car please{" "}
             <Link className="font-bold text-orange-600" to="/signup">
