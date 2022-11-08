@@ -1,9 +1,16 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import svg from "../../assets/images/login/login.svg";
+
 import TitleHooks from "../Shared/TitleHooks";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { useContext, useState } from "react";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const SignUp = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const [error, setError] = useState("");
+
   TitleHooks("Sign up");
 
   const handleSignup = (event) => {
@@ -12,9 +19,32 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    form.reset();
+
     console.log(name, email, password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        form.reset();
+        toast.success("Successfully signed up");
+        handleUpdateProfile(name);
+      })
+      .then((error) => {
+        setError(error.message);
+      });
   };
+
+  const handleUpdateProfile = (name) => {
+    const profile = {
+      displayName: name,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="hero w-full bg-base-200 my-20 rounded-lg">
       <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
@@ -60,11 +90,13 @@ const SignUp = () => {
                 className="input input-bordered"
               />
             </div>
+
             <div className="form-control mt-6">
+              <p className="text-red-600">{error}</p>
               <button>
                 {" "}
                 <input
-                  className="btn btn-primary"
+                  className="btn btn-primary w-full"
                   type="text"
                   value="Sign Up"
                 />

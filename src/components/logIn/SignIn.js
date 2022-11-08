@@ -1,18 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import svg from "../../assets/images/login/login.svg";
+import { AuthContext } from "../contexts/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin";
 import TitleHooks from "../Shared/TitleHooks";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
+  const { logIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const navigate = useNavigate();
+
   TitleHooks("Log in");
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    form.reset();
+
+    logIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        form.reset();
+        toast.success("Successfully loged in");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   return (
     <div className="hero w-full bg-base-200 my-20 rounded-lg">
@@ -46,13 +70,14 @@ const SignIn = () => {
                 placeholder="password"
                 className="input input-bordered"
               />
-              {/* <p className="text-red-500">{error}</p> */}
+
               <label className="label">
                 <Link href="" className="label-text-alt link link-hover">
                   Forgot password?
                 </Link>
               </label>
             </div>
+            <p className="text-red-600">{error}</p>
             <div className="form-control mt-6">
               <button>
                 <input

@@ -1,41 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo/logo.jpg";
+import { AuthContext } from "../contexts/AuthProvider";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Header = () => {
-  // const { user, logOut } = useContext(AuthContext);
+  const { user, LogOut } = useContext(AuthContext);
 
-  // const handleLogOut = () => {
-  //   logOut()
-  //     .then(() => {})
-  //     .catch((error) => console.error(error));
-  // };
-  // const menuItems = (
-  //     <>
-  //       <li className="font-semibold mr-2">
-  //         <Link to="/">Home</Link>
-  //       </li>
-  //       {user?.email ? (
-  //         <>
-  //           <li className="font-semibold mr-2">
-  //             <Link to="/orders">Orders</Link>
-  //           </li>
-  //           <li className="font-semibold mr-2">
-  //             {/* <button onClick={handleLogOut}>Log out</button> */}
-  //           </li>
-  //         </>
-  //       ) : (
-  //         <>
-  //           <li className="font-semibold mr-2">
-  //             <Link to="/login">Log in</Link>
-  //           </li>
-  //           <li className="font-semibold">
-  //             <Link to="/signup">Sign up</Link>
-  //           </li>
-  //         </>
-  //       )}
-  //     </>
-  //   );
+  const handleLogOut = () => {
+    LogOut()
+      .then(() => {
+        toast.success("Successfully loged out");
+      })
+      .catch((error) => console.error(error));
+  };
 
   const menuItems = (
     <>
@@ -45,13 +24,22 @@ const Header = () => {
       <li className="font-semibold mr-2">
         <Link to="/blog">Blog</Link>
       </li>
-      <li className="font-semibold mr-2">
-        <Link to="/signin">Log in</Link>
-      </li>
-
-      <li className="font-semibold">
-        <Link to="/signup">Sign up</Link>
-      </li>
+      {user?.email ? (
+        <>
+          <li className="font-semibold mr-2">
+            <button onClick={handleLogOut}>Log out</button>
+          </li>
+        </>
+      ) : (
+        <>
+          <li className="font-semibold mr-2">
+            <Link to="/signin">Log in</Link>
+          </li>
+          <li className="font-semibold">
+            <Link to="/signup">Sign up</Link>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -93,7 +81,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <input type="checkbox" className="toggle toggle-md" checked />
+        <input type="checkbox" className="toggle" />
       </div>
     </div>
   );

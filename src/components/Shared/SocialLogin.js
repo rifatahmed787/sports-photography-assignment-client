@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../contexts/AuthProvider";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const SocialLogin = () => {
+  const { googleSignIn } = useContext(AuthContext);
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Successfully loged in");
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="mx-5">
       <button
+        onClick={handleGoogleSignIn}
         aria-label="Login with Google"
         type="button"
         className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-700 focus:ring-violet-400 mb-5"

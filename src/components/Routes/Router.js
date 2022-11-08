@@ -3,8 +3,9 @@ import Blog from "../Blog/Blog";
 import Home from "../Home/Home";
 import Main from "../layOut/Main";
 import SignIn from "../logIn/SignIn";
-import SignUp from "../logIn/SignUp";
+
 import ErrorPage from "../pages/ErrorPage";
+import SignUp from "../Register/SignUp";
 
 const router = createBrowserRouter([
   {
