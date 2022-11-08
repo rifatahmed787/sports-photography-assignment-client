@@ -67,6 +67,29 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section>
+        <div
+          className="hero h-96"
+          style={{
+            backgroundImage: `url("https://i.ibb.co/V9Y7vzp/sport2.jpg")`,
+          }}
+        >
+          <div className="hero-overlay bg-opacity-60"></div>
+          <div className="hero-content text-center text-neutral-content">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-5xl font-bold">
+                What Is Sports Photography?
+              </h1>
+              <p className="mb-5">
+                Sports photography is a type of photography that covers every
+                sport and sporting event, capturing the action of a game and
+                behind the scenes of the players. This type of photography helps
+                to promote brands, the players, as well as the sport.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
