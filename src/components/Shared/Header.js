@@ -41,11 +41,21 @@ const Header = () => {
       <li className="font-semibold mr-2">
         <Link to="/">Home</Link>
       </li>
+      <li className="font-semibold mr-2">
+        <Link to="/blog">Blog</Link>
+      </li>
+      <li className="font-semibold mr-2">
+        <Link to="/signin">Log in</Link>
+      </li>
+
+      <li className="font-semibold">
+        <Link to="/signup">Sign up</Link>
+      </li>
     </>
   );
 
   return (
-    <div className="navbar bg-gray-400">
+    <div className="navbar bg-gray-400 rounded-md">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden"></label>
@@ -64,7 +74,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-success">Appoinment</button>
+        <input type="checkbox" className="toggle toggle-md" checked />
       </div>
     </div>
   );
