@@ -42,6 +42,31 @@ const Home = () => {
           className="w-5/6 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 dark:bg-gray-500"
         />
       </section>
+      <section className="dark:bg-gray-800 dark:text-gray-100">
+        <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+          <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
+            <h1 className="text-5xl font-bold leading-none sm:text-3xl">
+              Guide To Sports Photography
+            </h1>
+            <p className="mt-6 mb-8 text-lg sm:mb-12">
+              Sports Photography can be a very time consuming and challenging
+              activity, but it can be extremely rewarding when you get that
+              precise “in the moment” shot from a sports event.The basic
+              approach to capturing fast moving sports is to shoot in “Burst
+              Mode”, where the camera fires off several shots per second like a
+              machine gun. Good Sports Photography requires you to manipulate
+              camera settings manually and not use Auto Mode on your camera.
+            </p>
+          </div>
+          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+            <img
+              src={img2}
+              alt=""
+              className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 rounded-md"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
