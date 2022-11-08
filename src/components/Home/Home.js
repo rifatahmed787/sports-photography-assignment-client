@@ -1,10 +1,11 @@
-import React from "react";
 import img1 from "../../assets/images/banner/img2.jpg";
 import img2 from "../../assets/images/banner/img1.jpg";
 import TitleHooks from "../Shared/TitleHooks";
+import Services from "./Services";
 
 const Home = () => {
   TitleHooks("Home");
+
   return (
     <div>
       <section>
@@ -90,6 +91,12 @@ const Home = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+      <section>
+        <Services></Services>
+        <div className="grid justify-center mb-10">
+          <button className="btn btn-success">See All The Service</button>
         </div>
       </section>
     </div>

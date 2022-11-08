@@ -2,9 +2,15 @@ import React, { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
     googleSignIn()
@@ -12,6 +18,7 @@ const SocialLogin = () => {
         const user = result.user;
         console.log(user);
         toast.success("Successfully loged in");
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
