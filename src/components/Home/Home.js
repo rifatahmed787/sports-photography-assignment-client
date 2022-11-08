@@ -1,8 +1,10 @@
 import React from "react";
 import img1 from "../../assets/images/banner/img2.jpg";
 import img2 from "../../assets/images/banner/img1.jpg";
+import TitleHooks from "../Shared/TitleHooks";
 
 const Home = () => {
+  TitleHooks("Home");
   return (
     <div>
       <section>
