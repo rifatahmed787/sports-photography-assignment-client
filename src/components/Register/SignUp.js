@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, loading } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   TitleHooks("Sign up");
@@ -46,6 +46,14 @@ const SignUp = () => {
       .then(() => {})
       .catch((error) => console.error(error));
   };
+
+  if (loading) {
+    return (
+      <div className="text-center">
+        <button className="btn loading">loading</button>;
+      </div>
+    );
+  }
 
   return (
     <div className="hero w-full bg-base-200 my-20 rounded-lg">

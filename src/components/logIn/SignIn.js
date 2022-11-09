@@ -8,7 +8,7 @@ import TitleHooks from "../Shared/TitleHooks";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, loading } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
 
@@ -38,6 +38,15 @@ const SignIn = () => {
         setError(error.message);
       });
   };
+
+  if (loading) {
+    return (
+      <div className="text-center">
+        <button className="btn loading">loading</button>;
+      </div>
+    );
+  }
+
   return (
     <div className="hero w-full bg-base-200 my-20 rounded-lg">
       <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">

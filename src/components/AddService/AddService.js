@@ -1,8 +1,10 @@
 import React from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TitleHooks from "../Shared/TitleHooks";
 
 const AddService = () => {
+  TitleHooks("Add Service");
   const handleAddUser = (event) => {
     event.preventDefault();
     const form = event.target;
