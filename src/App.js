@@ -5,7 +5,7 @@ import router from "./components/Routes/Router";
 
 function App() {
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto bg-white dark:bg-black">
       <RouterProvider router={router}></RouterProvider>
       <ToastContainer />
     </div>

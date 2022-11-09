@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo/logo.jpg";
 import { AuthContext } from "../contexts/AuthProvider";
@@ -9,6 +9,19 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const { user, LogOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const themeToggle = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const handleLogOut = () => {
     LogOut()
@@ -25,10 +38,16 @@ const Header = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="font-semibold mr-2">
+          <Link to="/services">Services</Link>
+        </li>
+        <li className="font-semibold mr-2">
           <Link to="/blog">Blog</Link>
         </li>
         {user?.uid ? (
           <>
+            <li className="font-semibold mr-2">
+              <Link to="/addservice">Add Service</Link>
+            </li>
             <li className="font-semibold mr-2">
               <button onClick={handleLogOut}>Log out</button>
             </li>
@@ -111,7 +130,7 @@ const Header = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <input type="checkbox" className="toggle" />
+        <input onClick={themeToggle} type="checkbox" className="toggle" />
       </div>
     </div>
   );
