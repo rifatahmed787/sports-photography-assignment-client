@@ -17,10 +17,11 @@ const SignUp = () => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, email, password);
+    console.log(name, email, password, photoURL);
 
     createUser(email, password)
       .then((result) => {
@@ -29,16 +30,17 @@ const SignUp = () => {
         setError("");
         form.reset();
         toast.success("Successfully signed up");
-        handleUpdateProfile(name);
+        handleUpdateProfile(name, photoURL);
       })
       .then((error) => {
         setError(error.message);
       });
   };
 
-  const handleUpdateProfile = (name) => {
+  const handleUpdateProfile = (name, photoURL) => {
     const profile = {
       displayName: name,
+      photoURL: photoURL,
     };
     updateUserProfile(profile)
       .then(() => {})
@@ -61,6 +63,17 @@ const SignUp = () => {
               <input
                 required
                 name="name"
+                type="text"
+                placeholder="name"
+                className="input input-bordered"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">photoURL</span>
+              </label>
+              <input
+                name="photoURL"
                 type="text"
                 placeholder="name"
                 className="input input-bordered"

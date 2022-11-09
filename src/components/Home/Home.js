@@ -2,6 +2,7 @@ import img1 from "../../assets/images/banner/img2.jpg";
 import img2 from "../../assets/images/banner/img1.jpg";
 import TitleHooks from "../Shared/TitleHooks";
 import Services from "./Services";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   TitleHooks("Home");
@@ -96,7 +97,9 @@ const Home = () => {
       <section>
         <Services></Services>
         <div className="grid justify-center mb-10">
-          <button className="btn btn-success">See All The Service</button>
+          <Link to="/services">
+            <button className="btn btn-success">See All The Service</button>
+          </Link>
         </div>
       </section>
     </div>

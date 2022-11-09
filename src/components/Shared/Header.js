@@ -4,6 +4,8 @@ import logo from "../../assets/images/logo/logo.jpg";
 import { AuthContext } from "../contexts/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const { user, LogOut } = useContext(AuthContext);
@@ -18,28 +20,56 @@ const Header = () => {
 
   const menuItems = (
     <>
-      <li className="font-semibold mr-2">
-        <Link to="/">Home</Link>
-      </li>
-      <li className="font-semibold mr-2">
-        <Link to="/blog">Blog</Link>
-      </li>
-      {user?.email ? (
-        <>
-          <li className="font-semibold mr-2">
-            <button onClick={handleLogOut}>Log out</button>
-          </li>
-        </>
-      ) : (
-        <>
-          <li className="font-semibold mr-2">
-            <Link to="/signin">Log in</Link>
-          </li>
-          <li className="font-semibold">
-            <Link to="/signup">Sign up</Link>
-          </li>
-        </>
-      )}
+      <>
+        <li className="font-semibold mr-2">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="font-semibold mr-2">
+          <Link to="/blog">Blog</Link>
+        </li>
+        {user?.uid ? (
+          <>
+            <li className="font-semibold mr-2">
+              <button onClick={handleLogOut}>Log out</button>
+            </li>
+            <>
+              {user?.photoURL ? (
+                <img
+                  className="rounded-full"
+                  style={{ width: "30px" }}
+                  src={user?.photoURL}
+                  alt=""
+                  title={user?.displayName}
+                />
+              ) : (
+                <FontAwesomeIcon icon={faUser} className="mt-4 ml-3" />
+              )}
+            </>
+          </>
+        ) : (
+          <>
+            <li className="font-semibold mr-2">
+              <Link to="/signin">Log in</Link>
+            </li>
+            <li className="font-semibold">
+              <Link to="/signup">Sign up</Link>
+            </li>
+          </>
+        )}
+      </>
+      {/* <>
+        {user?.photoURL ? (
+          <img
+            className="rounded-full"
+            style={{ width: "30px" }}
+            src={user?.photoURL}
+            alt=""
+            title={user?.displayName}
+          />
+        ) : (
+          <FontAwesomeIcon icon={faUser} className="mt-4 ml-3" />
+        )}
+      </> */}
     </>
   );
 
