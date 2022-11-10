@@ -29,6 +29,23 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
+        const currentUser = {
+          email: user.email,
+        };
+
+        fetch("https://react-assignment-four-server.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("sports-token", data.token);
+          });
+
         setError("");
         form.reset();
         toast.success("Successfully loged in");
@@ -41,7 +58,7 @@ const SignIn = () => {
 
   if (loading) {
     return (
-      <div className="text-center">
+      <div className="text-center mt-5 mb-52">
         <button className="btn loading">loading</button>;
       </div>
     );

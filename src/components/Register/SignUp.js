@@ -33,7 +33,8 @@ const SignUp = () => {
         handleUpdateProfile(name, photoURL);
       })
       .then((error) => {
-        setError(error.message);
+        console.error(error);
+        // setError(error.message);
       });
   };
 
@@ -47,13 +48,13 @@ const SignUp = () => {
       .catch((error) => console.error(error));
   };
 
-  if (loading) {
-    return (
-      <div className="text-center">
-        <button className="btn loading">loading</button>;
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="text-center">
+  //       <button className="btn loading">loading</button>;
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="hero w-full bg-base-200 my-20 rounded-lg">

@@ -10,7 +10,7 @@ const AllService = () => {
   const services = useLoaderData();
   if (loading) {
     return (
-      <div className="text-center">
+      <div className="text-center mt-5 mb-52">
         <button className="btn loading">loading</button>;
       </div>
     );

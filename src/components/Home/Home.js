@@ -9,6 +9,7 @@ const Home = () => {
 
   return (
     <div>
+      {/* section one */}
       <section>
         <div className="dark:bg-violet-400">
           <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
@@ -46,6 +47,8 @@ const Home = () => {
           className="w-5/6 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 dark:bg-gray-500"
         />
       </section>
+
+      {/* section two */}
       <section className="dark:bg-gray-800 dark:text-gray-100">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
@@ -71,6 +74,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* section three */}
       <section>
         <div
           className="hero h-96"

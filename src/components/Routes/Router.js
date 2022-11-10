@@ -6,6 +6,7 @@ import Blog from "../Blog/Blog";
 import Home from "../Home/Home";
 import Main from "../layOut/Main";
 import SignIn from "../logIn/SignIn";
+import MyReviews from "../MyReviews/MyReviews";
 
 import ErrorPage from "../pages/ErrorPage";
 import SignUp from "../Register/SignUp";
@@ -36,19 +37,28 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <AllService></AllService>,
-        loader: () => fetch("http://localhost:5000/service"),
+        loader: () =>
+          fetch("https://react-assignment-four-server.vercel.app/service"),
       },
       {
         path: "/service/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(`https://react-assignment-four-server.vercel.app/${params.id}`),
       },
       {
         path: "/addservice",
         element: (
           <PrivateRoute>
             <AddService></AddService>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myreview",
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
           </PrivateRoute>
         ),
       },
