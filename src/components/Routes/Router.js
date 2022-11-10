@@ -44,7 +44,9 @@ const router = createBrowserRouter([
         path: "/service/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`https://react-assignment-four-server.vercel.app/${params.id}`),
+          fetch(
+            `https://react-assignment-four-server.vercel.app/service/${params.id}`
+          ),
       },
       {
         path: "/addservice",

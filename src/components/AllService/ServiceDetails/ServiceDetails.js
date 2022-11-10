@@ -48,7 +48,7 @@ const ServiceDetails = () => {
     fetch(`https://react-assignment-four-server.vercel.app/review/${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, [_id]);
+  }, [reviews]);
 
   return (
     <div>
