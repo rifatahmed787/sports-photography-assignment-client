@@ -59,7 +59,7 @@ const SignIn = () => {
   if (loading) {
     return (
       <div className="text-center mt-5 mb-52">
-        <button className="btn loading">loading</button>;
+        <button className="btn loading">loading</button>
       </div>
     );
   }
@@ -108,7 +108,7 @@ const SignIn = () => {
               <button>
                 <input
                   className="btn btn-primary w-full"
-                  type="text"
+                  type="submit"
                   value="Log In"
                 />
               </button>

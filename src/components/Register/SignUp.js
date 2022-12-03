@@ -119,7 +119,7 @@ const SignUp = () => {
                 {" "}
                 <input
                   className="btn btn-primary w-full"
-                  type="text"
+                  type="submit"
                   value="Sign Up"
                 />
               </button>

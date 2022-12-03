@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/logo.jpg";
 import { AuthContext } from "../contexts/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,6 +10,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   const { user, LogOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (theme === "dark") {
@@ -27,6 +28,7 @@ const Header = () => {
     LogOut()
       .then(() => {
         toast.success("Successfully loged out");
+        navigate("/");
       })
       .catch((error) => console.error(error));
   };

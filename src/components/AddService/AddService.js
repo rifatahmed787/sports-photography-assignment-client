@@ -42,7 +42,10 @@ const AddService = () => {
 
   return (
     <div>
-      <form onSubmit={handleAddUser} className="p-40 checkout-padding">
+      <form
+        onSubmit={handleAddUser}
+        className="lg:p-40 px-10 py-20 checkout-padding"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <input
             required
@@ -77,7 +80,7 @@ const AddService = () => {
           <textarea
             required
             name="description"
-            className="textarea textarea-accent textarea-block w-full h-40"
+            className="textarea textarea-accent textarea-block w-full h-28 lg:h-40"
             placeholder="Description"
           ></textarea>
         </div>
