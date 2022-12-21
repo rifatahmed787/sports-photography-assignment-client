@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../contexts/AuthProvider";
 import ServiceDetailsCard from "./ServiceDetailsCard";
+import "../../Home/Services.css";
 
 const ServiceDetails = () => {
   const { title, img, price, rating, description, _id } = useLoaderData();
@@ -53,8 +54,8 @@ const ServiceDetails = () => {
   return (
     <div>
       {/* section one */}
-      <section>
-        <div className="card card-compact w-full bg-base-100 shadow-xl mt-20">
+      <section className="margin-left">
+        <div className="card  bg-base-100 shadow-xl mt-20 ">
           <figure>
             <img src={img} alt="" />
           </figure>

@@ -84,7 +84,7 @@ const SignUp = () => {
               <input
                 name="photoURL"
                 type="text"
-                placeholder="name"
+                placeholder="photoURL"
                 className="input input-bordered"
               />
             </div>

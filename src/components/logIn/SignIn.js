@@ -56,13 +56,13 @@ const SignIn = () => {
       });
   };
 
-  if (loading) {
-    return (
-      <div className="text-center mt-5 mb-52">
-        <button className="btn loading">loading</button>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="text-center mt-5 mb-52">
+  //       <button className="btn loading">loading</button>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="hero w-full bg-base-200 my-20 rounded-lg">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
+import "./Services.css";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -10,10 +11,10 @@ const Services = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-5xl font-semibold text-center mt-10 text-orange-600">
+      <h1 className="text-5xl font-semibold text-center mt-10 text-orange-600 ">
         Please visit my services!!!
       </h1>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 my-20">
+      <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3 py-16 margin-left  justify-items-center">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}

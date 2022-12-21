@@ -79,14 +79,15 @@ const MyReviews = () => {
         </h1>
       ) : (
         <>
-          {myReviews.map((myReview) => (
-            <MyReviewCard
-              key={myReview._id}
-              myReview={myReview}
-              handleDelete={handleDelete}
-              handleStatusUpdate={handleStatusUpdate}
-            ></MyReviewCard>
-          ))}
+          {myReviews.length > 0 &&
+            myReviews.map((myReview) => (
+              <MyReviewCard
+                key={myReview._id}
+                myReview={myReview}
+                handleDelete={handleDelete}
+                handleStatusUpdate={handleStatusUpdate}
+              ></MyReviewCard>
+            ))}
         </>
       )}
     </div>
