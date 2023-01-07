@@ -59,8 +59,8 @@ const Header = () => {
             <>
               {user?.photoURL ? (
                 <img
-                  className="rounded-full"
-                  style={{ width: "30px" }}
+                  className="rounded-full mt-2.5"
+                  style={{ width: "32px", height: "32px" }}
                   src={user?.photoURL}
                   alt=""
                   title={user?.displayName}
@@ -81,24 +81,11 @@ const Header = () => {
           </>
         )}
       </>
-      {/* <>
-        {user?.photoURL ? (
-          <img
-            className="rounded-full"
-            style={{ width: "30px" }}
-            src={user?.photoURL}
-            alt=""
-            title={user?.displayName}
-          />
-        ) : (
-          <FontAwesomeIcon icon={faUser} className="mt-4 ml-3" />
-        )}
-      </> */}
     </>
   );
 
   return (
-    <div className="navbar bg-gray-400 rounded-md">
+    <div className="navbar bg-[#eee]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

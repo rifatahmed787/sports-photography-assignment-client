@@ -8,7 +8,7 @@ import TitleHooks from "../Shared/TitleHooks";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
-  const { logIn, loading } = useContext(AuthContext);
+  const { logIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
 
@@ -56,26 +56,20 @@ const SignIn = () => {
       });
   };
 
-  // if (loading) {
-  //   return (
-  //     <div className="text-center mt-5 mb-52">
-  //       <button className="btn loading">loading</button>
-  //     </div>
-  //   );
-  // }
-
   return (
-    <div className="hero w-full bg-base-200 my-20 rounded-lg">
+    <div className="hero bg-base-200 my-20 dark:bg-black rounded-lg">
       <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img className="w-3/4" src={svg} alt="" />
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-5xl font-bold text-center">Login now!</h1>
+        <div className="card flex-shrink-0 w-full border dark:border-white sm:w-4/5 md:11/12 dark:bg-black shadow-2xl bg-base-100">
+          <h1 className="text-3xl mt-4 font-bold dark:text-white text-center">
+            Login now!
+          </h1>
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text dark:text-white">Email</span>
               </label>
               <input
                 required
@@ -87,7 +81,7 @@ const SignIn = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text dark:text-white">Password</span>
               </label>
               <input
                 required
@@ -98,16 +92,19 @@ const SignIn = () => {
               />
 
               <label className="label">
-                <Link href="" className="label-text-alt link link-hover">
+                <Link
+                  href=""
+                  className="label-text-alt link link-hover dark:text-white"
+                >
                   Forgot password?
                 </Link>
               </label>
             </div>
             <p className="text-red-600">{error}</p>
-            <div className="form-control mt-6">
+            <div className="form-control mt-3">
               <button>
                 <input
-                  className="btn btn-primary w-full"
+                  className="btn border-none bg-gradient-to-r from-cyan-500 to-blue-500 w-full"
                   type="submit"
                   value="Log In"
                 />
@@ -122,7 +119,7 @@ const SignIn = () => {
             <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
           </div>
           <SocialLogin></SocialLogin>
-          <p className="text-center mb-5 ">
+          <p className="text-center mb-5 dark:text-white">
             New to genius car please{" "}
             <Link className="font-bold text-orange-600" to="/signup">
               Sign up

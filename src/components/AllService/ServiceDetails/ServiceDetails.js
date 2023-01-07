@@ -54,10 +54,10 @@ const ServiceDetails = () => {
   return (
     <div>
       {/* section one */}
-      <section className="margin-left">
-        <div className="card  bg-base-100 shadow-xl mt-20 ">
+      <section className="margin-left mx-auto">
+        <div className="card sm:w-11/12 md:w-11/12 mx-auto bg-base-100 shadow-xl mt-20 dark:text-white dark:bg-black border dark:border-white">
           <figure>
-            <img src={img} alt="" />
+            <img src={img} alt="" className="w-full" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{title}</h2>
@@ -90,7 +90,7 @@ const ServiceDetails = () => {
         <div>
           <form
             onSubmit={handleReviewer}
-            className="my-20 p-10 checkout-padding border-t-4 border-dashed"
+            className="my-20 p-10 pt-20 checkout-padding border-t-4 border-dashed"
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
               <input

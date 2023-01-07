@@ -1,35 +1,34 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthProvider";
 import MyReviewCard from "./MyReviewCard";
 import "react-toastify/dist/ReactToastify.css";
 import TitleHooks from "../Shared/TitleHooks";
+import { useQuery } from "@tanstack/react-query";
 
 const MyReviews = () => {
   TitleHooks("My Reviews");
-  const { user, LogOut } = useContext(AuthContext);
-  const [myReviews, setMyReviews] = useState([]);
+  const { user } = useContext(AuthContext);
 
-  useEffect(() => {
-    fetch(
-      `https://react-assignment-four-server.vercel.app/reviews?email=${user?.email}`,
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("sports-token")}`,
-        },
-      }
-    )
-      .then((res) => {
-        if (res.status === 401 || res.status === 403) {
-          return LogOut();
+  const {
+    data: myReviews = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["reviews"],
+    queryFn: async () => {
+      const res = await fetch(
+        `https://react-assignment-four-server.vercel.app/reviews/${user?.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("sports-token")}`,
+          },
         }
-
-        return res.json();
-      })
-      .then((data) => {
-        setMyReviews(data);
-      });
-  }, [user?.email, LogOut]);
+      );
+      const data = await res.json();
+      return data;
+    },
+  });
 
   const handleDelete = (id) => {
     const processed = window.confirm("Are you sure want to delete");
@@ -43,49 +42,28 @@ const MyReviews = () => {
           if (data.deletedCount > 0) {
             toast.success("Deleted successfully");
             const remaining = myReviews.filter((r) => r._id !== id);
-            setMyReviews(remaining);
+            refetch();
           }
         });
     }
   };
 
-  const handleStatusUpdate = (id) => {
-    fetch(`https://react-assignment-four-server.vercel.app/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ status: "Updated" }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          toast.success("Updated successfully");
-          const remaining = myReviews.filter((re) => re !== id);
-          const approving = myReviews.find((re) => re === id);
-          approving.status = "Updated";
-          const newReview = [approving, ...remaining];
-          setMyReviews(newReview);
-        }
-      });
-  };
-
   return (
-    <div className="py-40">
-      {myReviews.length === 0 ? (
-        <h1 className="text-center font-bold text-5xl">
+    <div>
+      {myReviews?.length < 1 ? (
+        <h1 className="flex py-40 justify-center text-center font-bold text-5xl dark:text-white">
           "No reviews were added"
         </h1>
       ) : (
         <>
-          {myReviews.length > 0 &&
-            myReviews.map((myReview) => (
+          {myReviews?.length > 0 &&
+            myReviews?.map((myReview) => (
               <MyReviewCard
                 key={myReview._id}
                 myReview={myReview}
                 handleDelete={handleDelete}
-                handleStatusUpdate={handleStatusUpdate}
+                isLoading={isLoading}
+                refetch={refetch}
               ></MyReviewCard>
             ))}
         </>

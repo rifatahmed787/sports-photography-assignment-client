@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile, loading } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
 
   TitleHooks("Sign up");
@@ -48,26 +48,20 @@ const SignUp = () => {
       .catch((error) => console.error(error));
   };
 
-  // if (loading) {
-  //   return (
-  //     <div className="text-center">
-  //       <button className="btn loading">loading</button>;
-  //     </div>
-  //   );
-  // }
-
   return (
-    <div className="hero w-full bg-base-200 my-20 rounded-lg">
+    <div className="hero  bg-base-200 dark:bg-black my-20 rounded-lg">
       <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img className="w-3/4" src={svg} alt="" />
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-5xl font-bold text-center">Signup now!</h1>
+        <div className="card flex-shrink-0 sm:w-4/5 md:w-11/12 border dark:border-white dark:bg-black shadow-2xl bg-base-100">
+          <h1 className="text-3xl mt-4 font-bold text-center dark:text-white ">
+            Signup now!
+          </h1>
           <form onSubmit={handleSignup} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text dark:text-white">Name</span>
               </label>
               <input
                 required
@@ -79,7 +73,7 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">photoURL</span>
+                <span className="label-text dark:text-white">photoURL</span>
               </label>
               <input
                 name="photoURL"
@@ -90,7 +84,7 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text dark:text-white">Email</span>
               </label>
               <input
                 required
@@ -102,7 +96,7 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text dark:text-white">Password</span>
               </label>
               <input
                 required
@@ -118,14 +112,14 @@ const SignUp = () => {
               <button>
                 {" "}
                 <input
-                  className="btn btn-primary w-full"
+                  className="btn border-none bg-gradient-to-r from-cyan-500 to-blue-500 w-full"
                   type="submit"
                   value="Sign Up"
                 />
               </button>
             </div>
           </form>
-          <p className="text-center mb-5 ">
+          <p className="text-center mb-5 dark:text-white">
             Already have an account? please{" "}
             <Link className="font-bold text-orange-600" to="/signin">
               Log in
