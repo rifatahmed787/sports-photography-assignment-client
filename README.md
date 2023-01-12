@@ -1,4 +1,4 @@
-# Project name: Sports Photography
+# Project title: Sports Photography
 ## Live link: https://sports-photography-f3a1f.web.app/
 
 ### About the project
