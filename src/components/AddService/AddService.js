@@ -52,35 +52,35 @@ const AddService = () => {
             name="title"
             type="text"
             placeholder="Title Name"
-            className="input input-bordered input-accent w-full"
+            className="input input-bordered input-accent w-full dark:bg-black"
           />
           <input
             required
             name="price"
             type="text"
             placeholder="Price"
-            className="input input-bordered input-accent w-full"
+            className="input input-bordered input-accent w-full dark:bg-black"
           />
           <input
             required
             name="rating"
             type="text"
             placeholder="Rating"
-            className="input input-bordered input-accent w-full"
+            className="input input-bordered input-accent w-full dark:bg-black"
           />
           <input
             required
             name="photoURL"
             type="text"
             placeholder="photoURL"
-            className="input input-bordered input-accent w-full"
+            className="input input-bordered input-accent w-full dark:bg-black"
           />
         </div>
         <div className="mt-10">
           <textarea
             required
             name="description"
-            className="textarea textarea-accent textarea-block w-full h-28 lg:h-40"
+            className="textarea textarea-accent textarea-block w-full h-28 lg:h-40 dark:bg-black"
             placeholder="Description"
           ></textarea>
         </div>

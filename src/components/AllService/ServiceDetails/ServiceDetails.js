@@ -98,21 +98,21 @@ const ServiceDetails = () => {
                 name="name"
                 type="text"
                 placeholder="Name"
-                className="input input-bordered input-accent lg:w-11/12 "
+                className="input input-bordered input-accent lg:w-11/12 dark:bg-black"
               />
               <input
                 required
                 name="photoURL"
                 type="text"
                 placeholder="photoURL"
-                className="input input-bordered input-accent lg:w-7/12 lg:col-span-2"
+                className="input input-bordered input-accent lg:w-7/12 lg:col-span-2 dark:bg-black"
               />
             </div>
             <div className="mt-5 ">
               <textarea
                 required
                 name="reeview"
-                className="textarea textarea-accent w-full lg:w-9/12 h-20"
+                className="textarea textarea-accent w-full lg:w-9/12 h-20 dark:bg-black"
                 placeholder="Your review"
               ></textarea>
             </div>
