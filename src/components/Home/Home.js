@@ -11,7 +11,7 @@ const Home = () => {
     <div>
       {/* section one */}
       <section>
-        <div className="dark:bg-violet-400">
+        <div className="dark:bg-[#077979]">
           <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
             <h1 className="font-bold text-5xl text-center mb-10">
               Sports Photography
@@ -28,13 +28,13 @@ const Home = () => {
             <div className="flex flex-wrap justify-center">
               <button
                 type="button"
-                className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-white"
+                className="px-8 py-3 m-2 text-lg font-semibold rounded bg-[#0D2F5A] text-white"
               >
                 Get started
               </button>
               <button
                 type="button"
-                className="px-8 py-3 m-2 text-lg border rounded dark:border-gray-700 dark:text-gray-900"
+                className="px-8 py-3 m-2 text-lg border rounded bg-[#00CFC8] dark:border-gray-700 dark:text-gray-900"
               >
                 Learn more
               </button>
@@ -103,7 +103,9 @@ const Home = () => {
         <Services></Services>
         <div className="grid justify-center mb-10">
           <Link to="/services">
-            <button className="btn btn-success">See All The Service</button>
+            <button className="btn border-none bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+              See All The Service
+            </button>
           </Link>
         </div>
       </section>

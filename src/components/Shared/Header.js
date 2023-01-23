@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/logo.jpg";
 import { AuthContext } from "../contexts/AuthProvider";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,6 +11,7 @@ const Header = () => {
   const { user, LogOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (theme === "dark") {
@@ -36,24 +37,54 @@ const Header = () => {
   const menuItems = (
     <>
       <>
-        <li className="font-semibold mr-2">
+        <li
+          className={`font-semibold text-white mr-2 ${
+            location.pathname === "/"
+              ? "border rounded-lg border-black dark:border-green-300"
+              : ""
+          }`}
+        >
           <Link to="/">Home</Link>
         </li>
-        <li className="font-semibold mr-2">
+        <li
+          className={`font-semibold text-white mr-2 ${
+            location.pathname === "/services"
+              ? "border rounded-lg border-black dark:border-green-300"
+              : ""
+          }`}
+        >
           <Link to="/services">Services</Link>
         </li>
-        <li className="font-semibold mr-2">
+        <li
+          className={`font-semibold text-white mr-2 ${
+            location.pathname === "/blog"
+              ? "border rounded-lg border-black dark:border-green-300"
+              : ""
+          }`}
+        >
           <Link to="/blog">Blog</Link>
         </li>
         {user?.uid ? (
           <>
-            <li className="font-semibold mr-2">
+            <li
+              className={`font-semibold text-white mr-2 ${
+                location.pathname === "/addservice"
+                  ? "border rounded-lg border-black dark:border-green-300"
+                  : ""
+              }`}
+            >
               <Link to="/addservice">Add Service</Link>
             </li>
-            <li className="font-semibold mr-2">
+            <li
+              className={`font-semibold text-white mr-2 ${
+                location.pathname === "/myreview"
+                  ? "border rounded-lg border-black dark:border-green-300"
+                  : ""
+              }`}
+            >
               <Link to="/myreview">My Reviews</Link>
             </li>
-            <li className="font-semibold mr-2">
+            <li className="font-semibold mr-2 text-white">
               <button onClick={handleLogOut}>Log out</button>
             </li>
             <>
@@ -72,10 +103,22 @@ const Header = () => {
           </>
         ) : (
           <>
-            <li className="font-semibold mr-2">
+            <li
+              className={`font-semibold text-white mr-2 ${
+                location.pathname === "/signin"
+                  ? "border rounded-lg border-black dark:border-green-300"
+                  : ""
+              }`}
+            >
               <Link to="/signin">Log in</Link>
             </li>
-            <li className="font-semibold">
+            <li
+              className={`font-semibold text-white ${
+                location.pathname === "/signup"
+                  ? "border rounded-lg border-black dark:border-green-300"
+                  : ""
+              }`}
+            >
               <Link to="/signup">Sign up</Link>
             </li>
           </>
@@ -85,13 +128,13 @@ const Header = () => {
   );
 
   return (
-    <div className="navbar bg-[#eee]">
+    <div className="navbar bg-[#005F5F]">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className=" bg-[#005F5F] lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-7 w-7 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -106,15 +149,15 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu bg-[#005F5F] menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52"
           >
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case">
+        <Link to="/" className="px-5 bg-[#005F5F]">
           <img src={logo} alt="" className="w-10 rounded-full" />
         </Link>
-        <Link to="/" className="font-semibold">
+        <Link to="/" className="font-semibold text-white">
           Sports Photography
         </Link>
       </div>

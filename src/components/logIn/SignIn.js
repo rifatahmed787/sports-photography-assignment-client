@@ -23,7 +23,6 @@ const SignIn = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     logIn(email, password)
       .then((result) => {
@@ -57,12 +56,12 @@ const SignIn = () => {
   };
 
   return (
-    <div className="hero bg-base-200 my-20 dark:bg-black rounded-lg">
-      <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
+    <div className="hero bg-[#F6FAFF] my-20 dark:bg-black rounded-lg">
+      <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row ">
         <div className="text-center lg:text-left">
           <img className="w-3/4" src={svg} alt="" />
         </div>
-        <div className="card flex-shrink-0 w-full border dark:border-white sm:w-4/5 md:11/12 dark:bg-black shadow-2xl bg-base-100">
+        <div className="card bg-[#A2CBD2] flex-shrink-0 w-full border dark:border-white sm:w-4/5 md:11/12 dark:bg-black shadow-2xl">
           <h1 className="text-3xl mt-4 font-bold dark:text-white text-center">
             Login now!
           </h1>
@@ -76,7 +75,7 @@ const SignIn = () => {
                 name="email"
                 type="text"
                 placeholder="email"
-                className="input input-bordered"
+                className="input input-bordered dark:bg-black dark:border-white"
               />
             </div>
             <div className="form-control">
@@ -88,7 +87,7 @@ const SignIn = () => {
                 name="password"
                 type="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered dark:bg-black dark:border-white"
               />
 
               <label className="label">
@@ -120,7 +119,7 @@ const SignIn = () => {
           </div>
           <SocialLogin></SocialLogin>
           <p className="text-center mb-5 dark:text-white">
-            New to genius car please{" "}
+            New to Sports photgraphy{" "}
             <Link className="font-bold text-orange-600" to="/signup">
               Sign up
             </Link>

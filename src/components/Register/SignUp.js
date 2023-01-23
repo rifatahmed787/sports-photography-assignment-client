@@ -10,6 +10,7 @@ import { AuthContext } from "../contexts/AuthProvider";
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
+  console.log(error);
 
   TitleHooks("Sign up");
 
@@ -21,8 +22,6 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, email, password, photoURL);
-
     createUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -32,9 +31,8 @@ const SignUp = () => {
         toast.success("Successfully signed up");
         handleUpdateProfile(name, photoURL);
       })
-      .then((error) => {
-        console.error(error);
-        // setError(error.message);
+      .catch((error) => {
+        setError(error.message);
       });
   };
 
@@ -49,12 +47,12 @@ const SignUp = () => {
   };
 
   return (
-    <div className="hero  bg-base-200 dark:bg-black my-20 rounded-lg">
+    <div className="hero  bg-[#F6FAFF] dark:bg-black my-20 rounded-lg">
       <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img className="w-3/4" src={svg} alt="" />
         </div>
-        <div className="card flex-shrink-0 sm:w-4/5 md:w-11/12 border dark:border-white dark:bg-black shadow-2xl bg-base-100">
+        <div className="card bg-[#A2CBD2] flex-shrink-0 sm:w-4/5 md:w-11/12 lg:w-[420px] border dark:border-white dark:bg-black shadow-2xl">
           <h1 className="text-3xl mt-4 font-bold text-center dark:text-white ">
             Signup now!
           </h1>
@@ -68,7 +66,7 @@ const SignUp = () => {
                 name="name"
                 type="text"
                 placeholder="name"
-                className="input input-bordered"
+                className="input input-bordered dark:bg-black dark:border-white"
               />
             </div>
             <div className="form-control">
@@ -79,7 +77,7 @@ const SignUp = () => {
                 name="photoURL"
                 type="text"
                 placeholder="photoURL"
-                className="input input-bordered"
+                className="input input-bordered dark:bg-black dark:border-white"
               />
             </div>
             <div className="form-control">
@@ -91,7 +89,7 @@ const SignUp = () => {
                 name="email"
                 type="text"
                 placeholder="email"
-                className="input input-bordered"
+                className="input input-bordered dark:bg-black dark:border-white"
               />
             </div>
             <div className="form-control">
@@ -103,12 +101,11 @@ const SignUp = () => {
                 name="password"
                 type="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered dark:bg-black dark:border-white"
               />
             </div>
 
             <div className="form-control mt-6">
-              <p className="text-red-600">{error}</p>
               <button>
                 {" "}
                 <input
@@ -118,6 +115,7 @@ const SignUp = () => {
                 />
               </button>
             </div>
+            <p className="text-red-600">{error}</p>
           </form>
           <p className="text-center mb-5 dark:text-white">
             Already have an account? please{" "}

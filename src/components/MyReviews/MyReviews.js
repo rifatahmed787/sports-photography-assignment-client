@@ -47,7 +47,11 @@ const MyReviews = () => {
         });
     }
   };
-
+  if (isLoading) {
+    return (
+      <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+    );
+  }
   return (
     <div>
       {myReviews?.length < 1 ? (
@@ -55,18 +59,17 @@ const MyReviews = () => {
           "No reviews were added"
         </h1>
       ) : (
-        <>
+        <div className="lg:pb-20">
           {myReviews?.length > 0 &&
             myReviews?.map((myReview) => (
               <MyReviewCard
                 key={myReview._id}
                 myReview={myReview}
                 handleDelete={handleDelete}
-                isLoading={isLoading}
                 refetch={refetch}
               ></MyReviewCard>
             ))}
-        </>
+        </div>
       )}
     </div>
   );
