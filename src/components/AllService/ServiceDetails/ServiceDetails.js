@@ -55,7 +55,7 @@ const ServiceDetails = () => {
     <div>
       {/* section one */}
       <section className="margin-left mx-auto">
-        <div className="card sm:w-11/12 md:w-11/12 mx-auto bg-base-100 shadow-xl mt-20 dark:text-white dark:bg-black border dark:border-white">
+        <div className="card sm:w-11/12 md:w-11/12 mx-auto shadow-xl mt-20 dark:text-white dark:bg-black border dark:border-white">
           <figure>
             <img src={img} alt="" className="w-full" />
           </figure>
@@ -86,11 +86,14 @@ const ServiceDetails = () => {
       </section>
 
       {/* section three */}
-      <section>
+      <section className="mt-16 margin-left mx-auto border-t border-dashed border-black dark:border-white">
         <div>
+          <h3 className="text-black dark:text-white text-2xl lg:pl-16 mt-10 font-semibold">
+            Write your comment here.
+          </h3>
           <form
             onSubmit={handleReviewer}
-            className="my-20 p-10 pt-20 checkout-padding border-t-4 border-dashed"
+            className="mb-20 mt-10 sm:px-7 lg:pl-16 checkout-padding "
           >
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
               <input

@@ -3,17 +3,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-[#C5C5C5] dark:bg-black border dark:border-white text-gray-300 rounded">
+    <footer className="footer footer-center p-10 bg-[#253A51] dark:bg-black border dark:border-white text-gray-300 rounded">
       <div className="grid grid-flow-col gap-4">
-        <Link className="link link-hover text-black dark:text-white">
-          About us
-        </Link>
-        <Link className="link link-hover text-black dark:text-white">
-          Contact
-        </Link>
-        <Link className="link link-hover text-black dark:text-white">
-          Services
-        </Link>
+        <Link className="link link-hover  dark:text-white">About us</Link>
+        <Link className="link link-hover  dark:text-white">Contact</Link>
+        <Link className="link link-hover dark:text-white">Services</Link>
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">
@@ -53,7 +47,7 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <p className="text-black dark:text-white">
+        <p className=" dark:text-white">
           Copyright © 2022 - All right reserved by Sports Photography
         </p>
       </div>

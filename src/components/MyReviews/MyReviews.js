@@ -49,17 +49,19 @@ const MyReviews = () => {
   };
   if (isLoading) {
     return (
-      <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+      <div className="py-40">
+        <div className="w-16 h-16 mx-auto border-4 border-dashed rounded-full animate-spin border-purple-500 dark:border-violet-400"></div>
+      </div>
     );
   }
   return (
     <div>
       {myReviews?.length < 1 ? (
-        <h1 className="flex py-40 justify-center text-center font-bold text-5xl dark:text-white">
+        <h1 className="flex min-h-screen justify-center items-center text-center font-bold text-5xl dark:text-white">
           "No reviews were added"
         </h1>
       ) : (
-        <div className="lg:pb-20">
+        <div className="min-h-screen">
           {myReviews?.length > 0 &&
             myReviews?.map((myReview) => (
               <MyReviewCard

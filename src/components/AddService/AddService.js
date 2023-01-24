@@ -41,7 +41,7 @@ const AddService = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen">
       <form
         onSubmit={handleAddUser}
         className="lg:p-40 px-10 py-20 checkout-padding "
