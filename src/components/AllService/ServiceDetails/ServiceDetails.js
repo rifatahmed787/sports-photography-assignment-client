@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../contexts/AuthProvider";
 import ServiceDetailsCard from "./ServiceDetailsCard";
 import "../../Home/Services.css";
+import "./ServiceDetails.css";
 
 const ServiceDetails = () => {
   const { title, img, price, rating, description, _id } = useLoaderData();
@@ -66,7 +67,9 @@ const ServiceDetails = () => {
             <p>{description}</p>
             <div className="card-actions justify-end">
               <Link to="/services">
-                <button className="btn btn-primary">Go to services</button>
+                <button type="button" className="custom-btttn btn-1">
+                  Go to services
+                </button>
               </Link>
             </div>
           </div>
@@ -104,7 +107,6 @@ const ServiceDetails = () => {
                 className="input input-bordered input-accent lg:w-11/12 dark:bg-black"
               />
               <input
-                required
                 name="photoURL"
                 type="text"
                 placeholder="photoURL"
@@ -120,7 +122,7 @@ const ServiceDetails = () => {
               ></textarea>
             </div>
             <div>
-              <button className="btn btn-success  mt-3">Submit</button>
+              <button className="btn btn-accent w-32 h-10  mt-3">Submit</button>
             </div>
           </form>
         </div>

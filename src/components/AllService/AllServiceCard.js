@@ -2,6 +2,7 @@ import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Link } from "react-router-dom";
 import "react-photo-view/dist/react-photo-view.css";
+import "../Home/ServiceCard.css";
 
 const AllServiceCard = ({ service }) => {
   const { title, img, rating, price, description, _id } = service;
@@ -25,7 +26,9 @@ const AllServiceCard = ({ service }) => {
         </p>
         <div className="card-actions justify-end">
           <Link to={`/service/${_id}`}>
-            <button className="btn btn-primary">View details</button>
+            <button type="button" className="custom-bttn btn-7">
+              <span>View details</span>
+            </button>
           </Link>
         </div>
       </div>

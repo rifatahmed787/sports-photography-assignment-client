@@ -1,3 +1,7 @@
+.card.green {
+  background: linear-gradient(150deg, #39ef74, #4600f1 100%);
+}
+
 @media only screen and (max-width: 640px) { 
     .card-width{
       width: 80%;

@@ -41,11 +41,11 @@ const MyReviewCard = ({ myReview, handleDelete, refetch }) => {
   };
 
   return (
-    <div className="card sm:w-1/3 md:w-1/3 lg:1/3 card-width bg-[#A0BBFD] shadow-2xl dark:bg-black border dark:border-white mx-auto mb-16 mt-16">
+    <div className="card green sm:w-1/3 md:w-1/3 lg:1/3 card-width shadow-2xl dark:bg-black border dark:border-white mx-auto mb-16 mt-16">
       {isUpdating === _id ? (
         <div>
           <div className="card-body">
-            <h2 className="card-title dark:text-white mx-auto">{title}</h2>
+            <h2 className="card-title text-white mx-auto">{title}</h2>
             <form onSubmit={handleStatusUpdate}>
               <div>
                 <div className="flex justify-center">
@@ -88,8 +88,8 @@ const MyReviewCard = ({ myReview, handleDelete, refetch }) => {
         </div>
       ) : (
         <div className="card-body">
-          <h2 className="card-title dark:text-white mx-auto">{title}</h2>
-          <p className="dark:text-white mx-auto pb-3">{message}</p>
+          <h2 className="card-title text-white mx-auto">{title}</h2>
+          <p className="text-white mx-auto pb-3">{message}</p>
           <div className="card-actions justify-center">
             <button
               onClick={() => {

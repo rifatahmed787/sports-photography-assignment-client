@@ -3,6 +3,7 @@ import img2 from "../../assets/images/banner/img1.jpg";
 import TitleHooks from "../Shared/TitleHooks";
 import Services from "./Services";
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
   TitleHooks("Home");
@@ -26,18 +27,22 @@ const Home = () => {
               shot in any situation.
             </p>
             <div className="flex flex-wrap justify-center">
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg font-semibold rounded bg-[#0D2F5A] text-white"
-              >
-                Get started
-              </button>
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg border rounded bg-[#00CFC8] dark:border-gray-700 dark:text-gray-900"
-              >
-                Learn more
-              </button>
+              <Link to="/addservice">
+                <button
+                  type="button"
+                  className="px-8 py-3 m-2 text-lg font-semibold rounded bg-[#0D2F5A] text-white"
+                >
+                  Get started
+                </button>
+              </Link>
+              <Link to="/blog">
+                <button
+                  type="button"
+                  className="px-8 py-3 m-2 text-lg border rounded bg-[#00CFC8] dark:border-gray-700 dark:text-gray-900"
+                >
+                  Learn more
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -103,8 +108,8 @@ const Home = () => {
         <Services></Services>
         <div className="grid justify-center mb-10">
           <Link to="/services">
-            <button className="btn border-none bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-              See All The Service
+            <button type="button" className="custom-btn btn-13">
+              <span>See All The Service</span>
             </button>
           </Link>
         </div>
