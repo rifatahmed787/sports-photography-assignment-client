@@ -11,7 +11,7 @@ const Services = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-5xl font-semibold text-center mt-10 text-purple-500">
+      <h1 className="text-5xl font-semibold text-center mt-10 text-[#1F2937]">
         Please visit my services!!!
       </h1>
       <div className="grid grid-cols-1 gap-x-10 mx-auto gap-y-8 md:grid-cols-2 lg:grid-cols-3 sm:w-4/5 py-16 margin-left dark:text-white  justify-items-center">

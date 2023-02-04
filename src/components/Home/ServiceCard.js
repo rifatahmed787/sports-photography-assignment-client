@@ -7,7 +7,7 @@ import "./ServiceCard.css";
 const ServiceCard = ({ service }) => {
   const { title, img, rating, price, description, _id } = service;
   return (
-    <div className="card bg-[#f0ebeb] dark:bg-black shadow-2xl border dark:border-white image-size">
+    <div className="card bg-[#f0ebeb] transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105  duration-300 hover:border-[#057EF9] dark:bg-black shadow-2xl border dark:border-white image-size">
       <figure>
         <PhotoProvider>
           <PhotoView src={img}>
@@ -17,8 +17,12 @@ const ServiceCard = ({ service }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
-        <p>Price: ${price}</p>
-        <p>Rating: {rating}</p>
+        <p>
+          <span className="font-semibold">Price:</span> ${price}
+        </p>
+        <p>
+          <span className="font-semibold">Rating:</span> {rating}
+        </p>
         <p>
           {description.length >= 100
             ? `${description.slice(0, 100)}...more`
