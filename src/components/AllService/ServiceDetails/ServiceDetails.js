@@ -98,7 +98,7 @@ const ServiceDetails = () => {
             onSubmit={handleReviewer}
             className="mb-20 mt-10 sm:px-7 lg:pl-16 checkout-padding "
           >
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 dark:text-white">
               <input
                 required
                 name="name"
@@ -117,7 +117,7 @@ const ServiceDetails = () => {
               <textarea
                 required
                 name="reeview"
-                className="textarea textarea-accent w-full lg:w-9/12 h-20 dark:bg-black"
+                className="textarea textarea-accent w-full lg:w-9/12 h-20 dark:bg-black dark:text-white"
                 placeholder="Your review"
               ></textarea>
             </div>

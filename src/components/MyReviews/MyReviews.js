@@ -61,7 +61,7 @@ const MyReviews = () => {
           "No reviews were added"
         </h1>
       ) : (
-        <div className="min-h-screen">
+        <div className="min-h-screen dark:text-white">
           {myReviews?.length > 0 &&
             myReviews?.map((myReview) => (
               <MyReviewCard
